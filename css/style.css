@@ -1,214 +1,404 @@
-body,
-div,
+/* GENERAL */
+body {
+    padding: 1%;
+    font: 16px/1.2em "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
 ul,
-li,
-p,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+span {
+    padding: 10px 0;
+}
+
+img {
+    display: inline-block;
+}
+
+.clear-fix {
+    overflow: auto;
+}
+
+#main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* FONTS */
 h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+h5 {
+    padding: 0;
+    margin: 0;
 }
 
-.clear-fix {
-  overflow: auto;
+h1, h2, h3 {
+    text-transform: uppercase;
+    color: #000;
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
+h1, h2 {
+    width: 130px;
 }
 
 h1 {
-  font-size: 40px;
-  color: #f5a623;
-  line-height: 48px;
-  display: inline;
+    margin-top: 19px;
+    font-size: 26px;
+    line-height: 26px;
+    padding-bottom: 10px;
+}
+
+h2, h3 {
+    font-weight: 400;
 }
 
 h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999;
-  line-height: 29px;
-  padding: 10px;
+    font-size: 1em;
 }
 
 h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000;
-  line-height: 22px;
+    flex-basis: 100%;
+    border-bottom: 2px solid #ffcc00;
+    font-weight: 600;
 }
 
 h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
-}
-
-h2,
-h3,
-h4,
-h5 {
-  padding:10px 5%;
-
-}
-
-
-.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: left;
-}
-
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: right;
-
+    font-weight: bold;
+    font-size: 18px;
+    color: #4a4a4a;
+    margin: 20px 0 15px;
 }
 
 p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
+    margin: 0 0 10px;
+}
+
+p > br {
+    display: none;
 }
 
 a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
+    color: #1199c3;
+    text-decoration: none;
+    display: block;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-}
-
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
-.orange {
-  background-color: #f5ae23;
+a:hover {
+    color: #1199c3;
 }
 
 .orange-text {
-  color: #f5ae23;
+    color: #000;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #fff;
+    color: #fff;
 }
 
-.gray {
-  background-color: #f3f3f3;
-  padding-bottom: 10px;
-  clear:both;
+a > span,
+.work-entry > p:first-child {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #000;
 }
 
-.dark-gray {
-  background-color: #4a4a4a;
-}
 
-/* TODO: Replace with image later */
+/* HEADER */
 #header {
-  background-color: #484848;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.center-content {
-  padding: 2.5% 5%;
-}
-
-ul {
-  list-style-type: none;
+    height: 210px;
+    margin-bottom: 30px;
+    background: #ffcc00;
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: visible;
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-span {
-  padding: 5px;
-}
-
-#lets-connect {
-  text-align: center;
-}
-
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
     width: 150px;
-  }
-  .welcome-message {
+    margin-right: 10px;
+}
+
+#topContacts {
+    flex-wrap: nowrap;
+    width: 98%;
+    padding: 0 1%;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    justify-content: space-between;
+}
+
+
+/* CONTACTS */
+
+[class^="icon-"]:after {
+    font-size: 28px;
+}
+
+#footerContacts [class^="icon-"]:after {
+    color: #fff;
+}
+
+#footerContacts li {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
+}
+
+li.flex-item a {
     display: none;
-  }
+    line-height: 0.7em;
+    position: absolute;
+    bottom: -31px;
+    right: 0;
+    background: #ffcc00;
+    padding: 10px;
+    white-space: nowrap;
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+
+/* SKILLS */
+
+.flex-box, #web-skills, #workExperience, #projects, #education, #online-education, #mapDiv, #lets-connect {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+#web-skills, #workExperience, #projects, #education, #online-education, #lets-connect {
+    align-items: baseline;
+    justify-content: flex-end;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
-  }
+#web-skills, #projects, #lets-connect {
+    margin-bottom: 70px;
+}
+
+#education, #online-education {
+    margin-bottom: 50px;
+}
+
+#workExperience {
+    margin-bottom: 40px;
+}
+
+#skills, .work-entry, #map, #footerContacts {
+    flex-grow: 1;
+}
+
+#skills, #footerContacts {
+    background: #1199c3;
+}
+
+#skills li {
+    padding: 10px;
+}
+
+
+/* EXPERIENCE */
+
+.work-entry {
+    margin-top: 15px;
+}
+
+.work-info {
+    margin-bottom: 30px;
+}
+
+.work-info li {
+    list-style: disc;
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+.date-text, .location-text {
+    font-size: 14px;
+    color: #999;
+    display: inline-block;
+}
+
+.date-text {
+    margin-right: 15px;
+}
+
+
+/* PROJECTS */
+
+.project-entry, .education-entry {
+    flex-grow: 1;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.education-entry {
+    margin-bottom: 20px;
+}
+
+.project-entry img {
+    width: 50%;
+    max-width: 400px;
+}
+
+.project-entry img:nth-child(even) {
+    float: right;
+}
+
+@media only screen and (min-width: 470px) {
+
+    #header {
+        height: 150px;
+        justify-content: center;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    #topContacts {
+        width: auto;
+        padding: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        align-content: flex-end;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+
+    #topContacts li, #footerContacts li {
+        padding: 10px;
+    }
+
+    #skills li {
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 560px) {
+
+    h1, h2 {
+        width: 250px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+        line-height: 0.8em;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+        margin-top: 30px
+    }
+
+    #mapDiv {
+        height: 400px;
+        align-items: flex-start;
+        justify-content: flex-end;
+        margin-bottom: 100px;
+    }
+
+    .amcharts-chart-div, #map {
+        overflow: visible !important;
+    }
+}
+
+@media only screen and (min-width: 705px) {
+
+    body {
+        font-size: 18px;
+        padding: 2.5%;
+    }
+
+    h1, h2 {
+        width: 320px;
+    }
+
+    h3 {
+        margin-bottom: 0;
+        text-align: right;
+        font-size: 1.18em;
+        flex-basis: 130px;
+        border: none;
+    }
+
+    h4 {
+        margin: 0 0 15px;
+    }
+
+    a {
+        display: inline-block;
+    }
+
+    .biopic {
+        margin-right: 15px;
+    }
+
+    #skills, .first, #footerContacts {
+        margin-left: 20px !important;
+    }
+
+    .work-entry > p:first-child {
+        border-bottom: 2px solid #ccc;
+    }
+
+    #education .date-text, #online-education .date-text {
+        padding-top: 3px;
+    }
+
+    .date-text, .location-text {
+        text-align: right;
+    }
+
+    #education .location-text {
+        text-align: left;
+    }
+
+    .date-text {
+        float: right;
+        margin-right: 0;
+    }
+
+    .location-text {
+        display: block;
+    }
+
+    #skills, #footerContacts {
+        justify-content: space-between;
+    }
+
+    .work-entry, .project-entry, .education-entry, #footerContacts {
+        justify-content: space-between;
+        margin-left: 150px;
+        flex-basis: 500px;
+    }
+
+    #map {
+        flex-basis: 500px;
+    }
 }

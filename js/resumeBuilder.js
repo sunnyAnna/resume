@@ -3,13 +3,21 @@ var bio = {
     'name': 'anna krygier',
     'role': '{web: designer + developer}',
     'contacts': {
-        'email': ['<a href="mailto:anna@topchoicedesign.com">anna@topchoicedesign.com</a>', 'icon-mail-alt'],
-        'mobile': ['<a href="tel:1-415.450.8740">415.450.8740</a>', 'icon-phone'],
-        'github': ['<a href="https://github.com/sunnyAnna">sunnyAnna</a>', 'icon-github-circled'],
-        'linkedIn': ['<a href="https://www.linkedin.com/in/annakrygier">annakrygier</a>', 'icon-linkedin'],
-        'website': ['<a href="http://topchoicedesign.com">topchoicedesign.com</a>', 'icon-link-ext'],
-        'location': ['<a href="#home">Larkspur, CA</a>', 'icon-home'],
-        'locationInfo': ''
+        'email': '<a href="mailto:anna@topchoicedesign.com">anna@topchoicedesign.com</a>',
+        'mobile': '<a href="tel:1-415.450.8740">415.450.8740</a>',
+        'github': '<a href="https://github.com/sunnyAnna">sunnyAnna</a>',
+        'linkedIn': '<a href="https://www.linkedin.com/in/annakrygier">annakrygier</a>',
+        'website': '<a href="http://topchoicedesign.com">topchoicedesign.com</a>',
+        'location': '<a href="#home">Larkspur, CA</a>',
+        'locationInfo': '',
+        'icons': {
+            'email': 'icon-mail-alt',
+            'mobile': 'icon-phone',
+            'github': 'icon-github-circled',
+            'linkedIn': 'icon-linkedin',
+            'website': 'icon-link-ext',
+            'location': 'icon-home'
+        }
     },
     'welcomeMessage': 'hello',
     'skills': ['HTML(5)', 'CSS(3)', 'Javascript', 'jQuery', 'Photoshop'],
@@ -19,12 +27,12 @@ var bio = {
         var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
         var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
         var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-        var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile[0]).replace('white-text', bio.contacts.mobile[1]);
-        var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email[0]).replace('white-text', bio.contacts.email[1]);
-        var formattedGitbub = HTMLgithub.replace('%data%', bio.contacts.github[0]).replace('white-text', bio.contacts.github[1]);
-        var formattedWebsite = HTMLwebsite.replace('%data%', bio.contacts.website[0]).replace('white-text', bio.contacts.website[1]);
-        var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn[0]).replace('white-text', bio.contacts.linkedIn[1]);
-        var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location[0]).replace('white-text', bio.contacts.location[1]);
+        var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile).replace('white-text', bio.contacts.icons.mobile);
+        var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email).replace('white-text', bio.contacts.icons.email);
+        var formattedGitbub = HTMLgithub.replace('%data%', bio.contacts.github).replace('white-text', bio.contacts.icons.github);
+        var formattedWebsite = HTMLwebsite.replace('%data%', bio.contacts.website).replace('white-text', bio.contacts.icons.website);
+        var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn).replace('white-text', bio.contacts.icons.linkedIn);
+        var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location).replace('white-text', bio.contacts.icons.location);
         $('#header').prepend(formattedPic + formattedName + formattedRole);
         $('#topContacts').append(formattedMobile + formattedEmail + formattedWebsite + formattedGitbub + formattedLinkedIn + formattedLocation);
         $('#footerContacts').append(formattedMobile + formattedEmail + formattedGitbub + formattedLinkedIn + formattedWebsite + formattedLocation);
@@ -121,7 +129,8 @@ var projects = {
 var education = {
     'schools': [{
         'name': 'Adam Mickiewicz University',
-        'dates': '2000 - 2005',
+        'dates': 2005,
+        'majors': ['n/a', 'n/a'],
         'location': 'Poznan, Poland',
         'locationInfo': '<img src="images/poznan.jpg"><p>Poznań is perceived as the historical capital of Greater Poland — a region in central-western Poland. In terms of population, it\'s the fifth largest Polish city.</p>',
         'degree': 'Psychology, M.A.',
@@ -130,17 +139,17 @@ var education = {
     'onlineCourses': [{
         'school': 'Udacity',
         'title': 'front end web developer',
-        'dates': '2015',
+        'dates': 2016,
         'url': 'https://www.udacity.com'
     }, {
         'school': 'Code School',
         'title': 'javascript',
-        'dates': '2014',
+        'dates': 2016,
         'url': 'https://www.codeschool.com'
     }, {
         'school': 'Treehouse',
         'title': 'web design',
-        'dates': '2013',
+        'dates': 2014,
         'url': 'https://teamtreehouse.com'
     }],
     'display': function() {
@@ -263,13 +272,13 @@ if ($(window).width() > 599) {
                 myMap.display(coordinates, address);
             });
         };
-        for (var i = 0; i < addresses.length; i++) {
+        for (var i = 0, j = addresses.length; i < j; i++) {
             geoResult();
         }
     };
 
     myMap.descriptionFinder = function(data, label) {
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0, j = data.length; i < j; i++) {
             var str2 = label.trim();
             var str1 = data[i].location.trim();
             if (str1.substr(0, 3).toLowerCase() === str2.substr(0, 3).toLowerCase()) {

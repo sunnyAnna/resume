@@ -210,10 +210,22 @@ var myModal = {
 		var y = '<p>Thanks for visiting!</p>';
 		var message = city ? x : y;
 		$('.modal-body').append(message);
+		if (message) {
+			myModal.display();
+		}
 	},
-	'display': function () {
+	'attach': function () {
 		$(myModal.structure).insertBefore('#main');
 		myModal.visitorLocation();
+	},
+	'display': function () {
+		return (
+			//TODO: message displays upon screen exit
+			$('body').on('mouseleave', function () {
+				$('#myModal').modal();
+				$(this).off();
+			})
+		)
 	}
 };
 
@@ -230,6 +242,9 @@ if ($(window).width() > 599) {
 
 	// TODO: set-up GEOCODER
 	var geocoder = new google.maps.Geocoder();
+
+	// TODO: set-up myModal
+	myModal.attach();
 
 	// TODO: set-up AMMAP
 	var myMap = new AmCharts.AmMap();
@@ -303,7 +318,6 @@ if ($(window).width() > 599) {
 	AmCharts.ready(function () {
 		myMap.coordinate(myMap.locationFinder);
 	});
-	myModal.display();
 }
 
 
@@ -314,11 +328,4 @@ $('[class*="icon"]').on('click', function () {
 	$(this).children('a').animate({
 		width: 'toggle'
 	}, 800);
-});
-
-
-//TODO: message displays upon screen exit
-$('body').on('mouseleave', function () {
-	$('#myModal').modal();
-	$(this).off();
 });

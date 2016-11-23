@@ -108,7 +108,8 @@ a:hover {
 	color: #000;
 }
 
-.white-text {
+.white-text,
+button {
 	color: #fff;
 }
 
@@ -234,7 +235,8 @@ li.flex-item a {
 }
 
 #skills li,
-#footerContacts {
+#footerContacts,
+button {
 	background: #1199c3;
 }
 
@@ -363,11 +365,28 @@ li.flex-item a {
 		height: 400px;
 		align-items: flex-start;
 		justify-content: flex-end;
-		margin-bottom: 100px;
+		margin-bottom: 150px;
 	}
 	.amcharts-chart-div,
 	#map {
 		overflow: visible !important;
+	}
+	/* MODAL */
+	.modal-content {
+		height: 3.6em;
+	}
+	.modal-body {
+		top: 0;
+		position: absolute;
+	}
+	.modal-body p {
+		margin: 7px 0;
+	}
+	button {
+		border: none;
+	}
+	button:hover {
+		background: #AA0000;
 	}
 }
 
@@ -430,17 +449,7 @@ li.flex-item a {
 		margin-top: 0;
 	}
 	#map {
+		padding-left: 165px;
 		flex-basis: 500px;
-	}
-	/* MODAL */
-	.modal-content {
-		height: 3.6em;
-	}
-	.modal-body {
-		top: 0;
-		position: absolute;
-	}
-	.modal-body p {
-		margin: 7px 0;
 	}
 }

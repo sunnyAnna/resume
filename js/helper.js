@@ -45,22 +45,3 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
-
-// TODO: show click location
-
-clickLocations = [];
-
-function logClicks(x, y) {
-    clickLocations.push({
-        x: x,
-        y: y
-    });
-    console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-    var x = loc.pageX;
-    var y = loc.pageY;
-    logClicks(x, y);
-});
